@@ -34,7 +34,8 @@ def checkSelenium():
 def checkFirefox():
     try:
         import subprocess
-        output = subprocess.check_output(['firefox', '--version'])
+        #output = subprocess.check_output(['firefox', '--version'])
+        output = subprocess.check_output([r'C:\\Program Files\\Mozilla Firefox\\firefox.exe', '--version'])
         if(output):
             prGreen("✅ Firefox is succesfully installed!")
         else:
@@ -57,8 +58,9 @@ def checkSeleniumLinkedin():
     #options.add_argument("-profile")
     #options.add_argument(firefoxProfileRootDir)
     #options.headless = True
-
-    browser = webdriver.Firefox(options=options)
+    
+    #browser = webdriver.Firefox(options=options)
+    browser = webdriver.Firefox()
 
     try:
         browser.get('https://www.ongundemirag.com')
