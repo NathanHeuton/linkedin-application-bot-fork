@@ -199,8 +199,10 @@ class Linkedin:
 
     def easyApplyButton(self):
         try:
-            button = self.driver.find_element(By.XPATH,
-                '//button[contains(@class, "jobs-apply-button")]')
+            #button = self.driver.find_element(By.XPATH, '//button[contains(@class, "jobs-apply-button")]')
+            button_list = self.driver.find_elements(By.XPATH, '//button[contains(@class, "jobs-apply-button")]')
+            button = button_list[1]
+
             EasyApplyButton = button
         except: 
             EasyApplyButton = False
@@ -236,7 +238,6 @@ class Linkedin:
             utils.writeResults(lineToWrite)
         except Exception as e:
             prRed("Error in DisplayWriteResults: " +str(e))
-
 
 start = time.time()
 while True:
